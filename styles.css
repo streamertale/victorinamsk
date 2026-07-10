@@ -768,6 +768,26 @@ body {
   transform: none;
 
   flex: 0 0 auto;
+
+  width: 1200px;
+  max-width: calc(100vw - 40px);
+}
+
+@media (min-width: 769px) {
+
+  #lettersRow {
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(var(--letter-count, 1), minmax(24px, 54px));
+  }
+
+  .letter-box {
+
+    width: 100%;
+    max-width: 54px;
+  }
 }
 
 #resultText {
@@ -1264,6 +1284,36 @@ button {
     justify-content: flex-start;
   }
 
+  #lettersRow {
+
+    display: grid;
+
+    grid-template-columns:
+      repeat(var(--letter-count, 1), minmax(0, 1fr));
+
+    gap: 4px;
+  }
+
+  .letter-box {
+
+    width: 100%;
+    min-width: 0;
+    height: 36px;
+
+    border: 0;
+    border-bottom:
+      2px solid rgba(255,220,170,0.48);
+
+    border-radius: 0;
+
+    background: transparent;
+
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    font-size: clamp(13px, 4vw, 20px);
+  }
+
   .rules-wrapper {
 
     align-items: flex-start;
@@ -1494,10 +1544,10 @@ button {
 
   .letter-box {
 
-    width: 34px;
-    height: 44px;
+    width: 100%;
+    height: 34px;
 
-    font-size: 21px;
+    font-size: clamp(12px, 4vw, 18px);
   }
 }
 
