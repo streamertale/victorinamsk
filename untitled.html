@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    Moscow Journey
+  </title>
+
+  <link rel="stylesheet" href="styles.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- ====================================== -->
+  <!-- START SCREEN -->
+  <!-- ====================================== -->
+
+  <section
+    id="startScreen"
+    class="screen active"
+  >
+
+    <div class="dark-overlay"></div>
+
+    <div class="screen-content">
+
+      <h1 class="start-title">
+
+        "А я иду, шагаю по Москве..."
+
+      </h1>
+
+      <button
+        id="startBtn"
+        class="main-btn"
+      >
+
+        НАЧАТЬ
+
+      </button>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ====================================== -->
+  <!-- RULES SCREEN -->
+  <!-- ====================================== -->
+
+  <section
+    id="rulesScreen"
+    class="screen"
+  >
+
+    <div class="dark-overlay"></div>
+
+    <div class="rules-wrapper">
+
+      <div class="rules-box">
+
+        <h2 class="rules-title">
+
+          ПРАВИЛА ИГРЫ
+
+        </h2>
+
+        <p class="rules-text">
+
+          Вас ждёт путешествие по Москве.
+
+        </p>
+
+        <p class="rules-text">
+
+          Отвечайте на вопросы,
+          выбирайте места
+          и собирайте свой маршрут.
+
+        </p>
+
+        <p class="rules-text">
+
+          В конце игры
+          сформируется ваш
+          персональный гид путешественника.
+
+        </p>
+
+        <div class="day-buttons">
+
+  <!-- DAY 1 -->
+
+  <button
+    class="day-btn"
+    data-day="1"
+  >
+
+    <div class="day-glow"></div>
+
+    <div class="day-title">
+      ДЕНЬ 1
+    </div>
+
+    <div class="day-subtitle">
+      Историческая Москва
+    </div>
+
+  </button>
+
+
+  <!-- DAY 2 -->
+
+  <button
+    class="day-btn"
+    data-day="2"
+  >
+
+    <div class="day-glow"></div>
+
+    <div class="day-title">
+      ДЕНЬ 2
+    </div>
+
+    <div class="day-subtitle">
+      Современная Москва
+    </div>
+
+  </button>
+
+</div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ====================================== -->
+  <!-- MAP SCREEN -->
+  <!-- ====================================== -->
+
+  <section
+    id="mapScreen"
+    class="screen"
+  >
+
+    <div class="map-overlay"></div>
+
+    <div id="spot"></div>
+
+    <div class="map-ui">
+
+      <div class="map-text-box">
+
+        <h2 id="mapTitle">
+
+          Историческая Москва
+
+        </h2>
+
+        <p id="mapText">
+
+          Нажмите SPACE
+          или коснитесь экрана,
+          чтобы открыть следующую точку маршрута.
+
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ====================================== -->
+  <!-- QUESTION SCREEN -->
+  <!-- ====================================== -->
+
+  <section
+    id="questionScreen"
+    class="screen"
+  >
+
+    <div class="question-overlay"></div>
+
+    <div class="question-ui">
+
+      <div class="question-box">
+
+        <h2 id="questionTitle"></h2>
+
+        <div id="optionsContainer"></div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ====================================== -->
+  <!-- RESULT SCREEN -->
+  <!-- ====================================== -->
+
+  <section
+    id="resultScreen"
+    class="screen"
+  >
+
+    <div class="question-overlay"></div>
+
+    <div class="result-ui">
+
+      <div class="result-box">
+
+        <h2 id="placeTitle"></h2>
+
+        <div id="resultText"></div>
+
+        <button id="hintBtn">
+
+          ПОДСКАЗКА
+
+        </button>
+
+        <div id="hintBox"></div>
+
+        <input
+          type="text"
+          id="answerInput"
+          autocomplete="off"
+          placeholder="Введите букву или слово"
+        >
+
+        <div id="lettersRow"></div>
+
+
+
+        <div id="answerStatus"></div>
+
+        <button
+          id="nextBtn"
+          style="display:none;"
+        >
+
+          ДАЛЕЕ
+
+        </button>
+
+      </div>
+
+    </div>
+
+  </section>
+
+<!-- ====================================== -->
+<!-- ROUTE SCREEN -->
+<!-- ====================================== -->
+
+<section
+  id="routeScreen"
+  class="screen"
+>
+
+  <!-- фон -->
+
+  <div class="question-overlay"></div>
+
+  <!-- ui -->
+
+  <div class="route-ui">
+
+    <div class="route-box">
+
+      <!-- title -->
+
+      <h2 class="route-title">
+
+        ВАШ МАРШРУТ ПО МОСКВЕ
+
+      </h2>
+
+      <!-- список -->
+
+      <div id="routeList"></div>
+      <button
+        id="restartBtn"
+        class="main-btn"
+      >
+
+  ВЫБРАТЬ ДРУГОЙ ДЕНЬ
+
+</button>
+    </div>
+
+    <div class="route-actions">
+
+  <button
+    id="downloadRouteBtn"
+    class="main-btn"
+  >
+
+    СОХРАНИТЬ МАРШРУТ
+
+  </button>
+
+</div>
+
+  </div>
+
+</section>
+
+  <script src="app.js"></script>
+
+</body>
+
+</html>
