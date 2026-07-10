@@ -745,6 +745,31 @@ body {
 /* RESULT */
 /* ====================================== */
 
+.result-ui {
+
+  display: flex;
+
+  flex-direction: column;
+  align-items: center;
+  justify-content: safe center;
+
+  overflow-y: auto;
+
+  padding: 32px 20px;
+}
+
+.result-box {
+
+  position: relative;
+
+  left: auto;
+  top: auto;
+
+  transform: none;
+
+  flex: 0 0 auto;
+}
+
 #resultText {
 
   font-size: 18px;
@@ -1232,6 +1257,11 @@ button {
       max(18px, env(safe-area-inset-top))
       14px
       max(18px, env(safe-area-inset-bottom));
+  }
+
+  .result-ui {
+
+    justify-content: flex-start;
   }
 
   .rules-wrapper {
