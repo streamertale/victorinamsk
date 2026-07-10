@@ -1036,7 +1036,22 @@ body {
 /* PRINT */
 /* ====================================== */
 
+@page {
+
+  size: A4 portrait;
+  margin: 12mm;
+}
+
 @media print {
+
+  html,
+  body {
+
+    width: auto !important;
+    height: auto !important;
+
+    overflow: visible !important;
+  }
 
   body {
 
@@ -1062,6 +1077,11 @@ body {
 
   #routeScreen {
 
+    position: relative !important;
+
+    width: 100% !important;
+    height: auto !important;
+
     background-image:
       url("images/route-bg.png") !important;
 
@@ -1069,7 +1089,23 @@ body {
 
     background-position: center !important;
 
-    min-height: 100vh;
+    min-height: 0 !important;
+
+    overflow: visible !important;
+  }
+
+  .route-ui {
+
+    position: relative !important;
+
+    inset: auto !important;
+
+    width: 100% !important;
+    height: auto !important;
+
+    overflow: visible !important;
+
+    padding: 0 !important;
   }
 
 
@@ -1090,15 +1126,24 @@ body {
 
   .route-box {
 
-    width: 88% !important;
+    position: relative !important;
 
-    max-width: 88% !important;
+    left: auto !important;
+    top: auto !important;
+
+    transform: none !important;
+
+    width: 100% !important;
+
+    max-width: 100% !important;
 
     max-height: none !important;
 
     overflow: visible !important;
 
-    padding: 54px !important;
+    margin: 0 !important;
+
+    padding: 28px !important;
 
     background:
       linear-gradient(
@@ -1142,7 +1187,8 @@ body {
     border:
       1px solid rgba(255,220,170,0.12) !important;
 
-    break-inside: avoid;
+    break-inside: avoid-page;
+    page-break-inside: avoid;
 
     color:
       white !important;
